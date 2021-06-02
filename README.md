@@ -4,7 +4,7 @@
 
 ## Change Log
 
-N/A
+* 02/06: Couple of quick tweaks from initial feedback, see git commits
 
 ## Overview
 
@@ -141,7 +141,7 @@ letters) and test words that are longer.
 on paper, and what types you will need to use.
 * **Task 4** --- *Lexicon handling.* Set up an `std::unordered_set` object with the large lexicon,
 read from our data file. There’s a utility function called `word_ladder::read_lexicon` that will
-read it in from file for you.
+read it in from file for you. Please don't modify this function.
 
 ### Assumptions
 
@@ -174,7 +174,7 @@ coordinate the activities of your objects to do the search.
 If you haven't done so already, clone this repository.
 
 ```sh
-$ git clone gitlab@gitlab.cse.unsw.edu.au:COMP6771/21T2/students/z5555555
+$ git clone gitlab@gitlab.cse.unsw.edu.au:COMP6771/21T2/students/z5555555/ass1
 ```
 
 (Note: Replace z5555555 with your zid)
@@ -243,6 +243,12 @@ sys     0m0.560s
 4. In VSCode, down the very bottom of the window, change your Cmake from `[Release]` to `[Debug]`.
    Now that you're done doing a sanity check benchmark, leave debug symbols on so that you can more
    effectively debug your code.
+
+### Compiling with debugging_main.cpp
+
+Two important notes here are:
+ * You will have to add another file to the "LINK" part in `CMakeLists.txt` to have this compile with `lexicon.cpp`
+ * When loading the lexicon file, use the path `./test/word_ladder/english.txt`. This is because this is the path that the executable wants if you run it as `build/source/debugging_main` etc.
 
 ## Marking Criteria
 
