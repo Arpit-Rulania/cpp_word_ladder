@@ -21,11 +21,11 @@
 #include "catch2/catch.hpp"
 
 TEST_CASE("at -> it") {
-	auto const english_lexicon = word_ladder::read_lexicon("./english.txt");
+	auto const english_lexicon = word_ladder::read_lexicon("./test/word_ladder/english.txt");
 	auto const ladders = word_ladder::generate("at", "it", english_lexicon);
 
 	CHECK(std::size(ladders) == 1);
 	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
 
-	CHECK(std::any_of(ladders.begin(), ladders.end(), testing::contain({"at", "it"})));
+	CHECK(std::count(ladders.begin(), ladders.end(), std::vector<std::string>{"at", "it"}) == 1);
 }
