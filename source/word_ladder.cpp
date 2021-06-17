@@ -3,6 +3,7 @@
 #include <string>
 #include <queue>
 #include <utility>
+#include <unordered_set>
 
 // Write your implementation here
 auto generate(std::string const& from, std::string const& to,
@@ -53,13 +54,21 @@ auto getNeighbors(std::string const& node, std::string const& to,
     /* We go through each letter of the word and change it a-z
        but if the letter in both source and destination same then
        we do nothing to that character and move to the next one*/
-    <std::vector<std::string> adjcen;
+    std::vector<std::string> adjcen;
     auto i = 0;
     for (auto iter = node.begin(); iter != node.end(); ++iter) {
-        if(to(i) != *iter) {
-
+        if(to.at(i) != *iter) {
+            auto wordCopy = node;
+            for (auto j = 97; j<= 122; j++) {
+                wordCopy.at(i) = char(j);
+                if (lexicon.contains(wordCopy)) {
+                    if(!wordCopy.compare(node)) {
+                       adjcen.push_back(std::move(wordCopy));
+                    }
+                }
+            }
         }
         i++;
     }
-
+    return adjcen;
 }
