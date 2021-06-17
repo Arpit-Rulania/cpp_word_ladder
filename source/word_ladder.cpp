@@ -29,7 +29,7 @@ auto generate(std::string const& from, std::string const& to,
             ladders.push_back(std::move(popLadder));
         } else {
             // Get all the neighbors to the current popped word.
-            auto nextLevel = getNeighbors(currNode);
+            auto nextLevel = getNeighbors(currNode, to, lexicon);
             while (nextLevel.empty() == false) {
                 // Get each word from the list of neighbors.
                 auto newWord = nextLevel.pop_back();
@@ -46,6 +46,13 @@ auto generate(std::string const& from, std::string const& to,
     return ladders;
 }
 
-auto getNeighbors(std::string const& node) ->  <std::vector<std::string> {
+auto getNeighbors(std::string const& node, std::string const& to,
+                  std::unordered_set<std::string> const& lexicon)
+                  ->  <std::vector<std::string> {
+
+    /* We go through each letter of the word and change it a-z
+       but if the letter in both source and destination same then
+       we do nothing to that character and move to the next one*/
+
 
 }
