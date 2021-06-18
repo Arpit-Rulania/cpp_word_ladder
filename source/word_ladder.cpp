@@ -28,10 +28,10 @@ namespace word_ladder {
         while(lque.empty() == false) {
             auto popLadder = lque.front();
             lque.pop();
-            for (auto m = 0u; m < popLadder.size(); m++) {
+            /*for (auto m = 0u; m < popLadder.size(); m++) {
 			        std::cout << popLadder[m] << " ";
 		        }
-		    std::cout << '\n' << '\n' << '\n';
+		    std::cout << '\n' << '\n';*/
             // Now make sure we are looking at the last word in the intermediate ladder.
             auto currNode = popLadder.back();
             // Stop the search if we have the target word.
@@ -58,6 +58,8 @@ namespace word_ladder {
                 }
             }
         }
+        // Lexiographical sorting->
+        std::sort(ladders.begin(), ladders.end(), std::less<std::vector<std::string>>());
         return ladders;
     }
 
@@ -71,15 +73,15 @@ namespace word_ladder {
            and check if it is a vaild word. */
         std::vector<std::string> adjcen;
         for (auto i = 0u; i < node.size(); ++i) {
-            // create a copy of source word
-            std::string wordCopy = node;
             // Change the i'th char to all alphabets.
             for (auto j = 'a'; j<= 'z'; ++j) {
+                // create a copy of source word
+                std::string wordCopy = node;
                 wordCopy[i] = j;
                 // add to list if it is in lexicon and not visited already.
                 if (lexicon.contains(wordCopy)) {
                     if(wordCopy != node && !visited.contains(wordCopy)) {
-                       adjcen.push_back(std::move(wordCopy));
+                        adjcen.push_back(std::move(wordCopy));
                     }
                 }
             }

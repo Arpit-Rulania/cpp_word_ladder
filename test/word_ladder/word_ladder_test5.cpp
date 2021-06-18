@@ -10,7 +10,7 @@ TEST_CASE("at -> it") {
 	auto const english_lexicon = word_ladder::read_lexicon("./enggg.txt");
 	auto const ladders = word_ladder::generate("at", "it", english_lexicon);
 
-	CHECK(std::size(ladders) == 2);
+	CHECK(std::size(ladders) == 1);
 	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
 
 	CHECK(std::count(ladders.begin(), ladders.end(), std::vector<std::string>{"at", "it"}) == 1);

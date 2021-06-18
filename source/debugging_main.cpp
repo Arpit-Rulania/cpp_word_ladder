@@ -7,8 +7,8 @@
 //  frameplays might be overwhelming for some.
 
 auto main() -> int {
-    auto const english_lexicon = word_ladder::read_lexicon("./test/word_ladder/enggg.txt");
-	auto const ladders = word_ladder::generate("at", "it", english_lexicon);
+	auto const english_lexicon = word_ladder::read_lexicon("./test/word_ladder/english.txt");
+	auto const ladders = word_ladder::generate("work", "play", english_lexicon);
 	for (auto i = 0u; i < ladders.size(); i++) {
 		for (auto j = 0u; j < ladders[i].size(); j++) {
 			std::cout << ladders[i][j] << " ";
