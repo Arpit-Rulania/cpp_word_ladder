@@ -45,7 +45,7 @@ namespace word_ladder {
                     // Get each word from the list of neighbors.
                     auto newWord = nextLevel.back();
                     nextLevel.pop_back();
-                    if(!newWord.compare(to)) {
+                    if(newWord != to) {
                         visited.insert(newWord);
                     }
                     // Copy the older ladder we popped from the queue.

@@ -11,7 +11,7 @@ auto main() -> int {
 	auto const ladders = word_ladder::generate("at", "it", english_lexicon);
 	for (auto i = 0u; i < ladders.size(); i++) {
 		for (auto j = 0u; j < ladders[i].size(); j++) {
-			std::cout << j << " ";
+			std::cout << ladders[i][j] << " ";
 		}
 		std::cout << '\n';
 	}
