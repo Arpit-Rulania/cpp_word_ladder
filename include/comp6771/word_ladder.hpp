@@ -19,6 +19,11 @@ namespace word_ladder {
 	                            std::string const& to,
 	                            std::unordered_set<std::string> const& lexicon)
 	   -> std::vector<std::vector<std::string>>;
+
+	[[nodiscard]] auto getNeighbors(std::string const& node,
+                  std::unordered_set<std::string> const& lexicon,
+                  std::unordered_set<std::string> visited)
+                  ->  std::vector<std::string>;
 } // namespace word_ladder
 
 #endif // COMP6771_WORD_LADDER_HPP
