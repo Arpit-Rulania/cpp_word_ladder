@@ -31,6 +31,12 @@ cxx_test(
 )
 
 cxx_test(
+   TARGET word_ladder_test6
+   FILENAME word_ladder_test6.cpp
+   LINK word_ladder lexicon Catch2::Catch2 test_main
+)
+
+cxx_test(
    TARGET word_ladder_test_benchmark
    FILENAME word_ladder_test_benchmark.cpp
    LINK word_ladder lexicon Catch2::Catch2 test_main

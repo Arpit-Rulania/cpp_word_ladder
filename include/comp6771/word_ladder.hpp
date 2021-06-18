@@ -5,6 +5,7 @@
 #define COMP6771_WORD_LADDER_HPP
 
 #include <unordered_set>
+#include <unordered_map>
 #include <string>
 #include <vector>
 
@@ -22,7 +23,7 @@ namespace word_ladder {
 
 	[[nodiscard]] auto getNeighbors(std::string const& node,
                   std::unordered_set<std::string> const& lexicon,
-                  std::unordered_set<std::string> visited)
+                  std::unordered_map<std::string, int> visited, int depth)
                   ->  std::vector<std::string>;
 } // namespace word_ladder
 
