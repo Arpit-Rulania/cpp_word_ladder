@@ -68,30 +68,7 @@ namespace word_ladder {
                       ->  std::vector<std::string> {
 
         /* We go through each letter of the word and change it a-z
-           but if the letter in both source and destination same then
-           we do nothing to that character and move to the next one*/
-        /*
-        std::vector<std::string> adjcen;
-        auto i = 0;
-        for (auto iter = node.begin(); iter != node.end(); ++iter) {
-            // If the character is not the same at position i then we need to change it.
-            //if(to.at(i) != *iter) {
-                // create a copy of source word
-                std::string wordCopy = node;
-                // Change the i'th char to all alphabets.
-                for (auto j = 'a'; j<= 'z'; ++j) {
-                    wordCopy[i] = j;
-                    // add to list if it is in lexicon and not visited already.
-                    if (lexicon.contains(wordCopy)) {
-                        if(!wordCopy.compare(node) && !visited.contains(wordCopy)) {
-                           adjcen.push_back(std::move(wordCopy));
-                        }
-                    }
-                }
-            //}
-            i++;
-        }
-        return adjcen;*/
+           and check if it is a vaild word. */
         std::vector<std::string> adjcen;
         for (auto i = 0u; i < node.size(); ++i) {
             // create a copy of source word
